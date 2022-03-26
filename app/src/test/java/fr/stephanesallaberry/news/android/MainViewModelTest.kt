@@ -10,13 +10,17 @@ import org.junit.Test
 import org.mockito.Mockito.`when`
 import org.mockito.Mockito.mock
 import org.orbitmvi.orbit.test
+import java.util.Date
 
 class MainViewModelTest {
 
     private val articleOrigin = Article(
         title = "1",
         description = "Description",
-        urlToImage = "https://placekitten.com/200/300"
+        urlToImage = "https://placekitten.com/200/300",
+        url = "https://placekitten.com",
+        content = "Full content",
+        publishedAt = Date()
     )
     private val listArticles = listOf(
         articleOrigin,
