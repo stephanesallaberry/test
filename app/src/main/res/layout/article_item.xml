@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:padding="@dimen/padding_margin_medium">
 
-    <ImageView
-        android:id="@+id/itemImage"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/article_picture_cd"
-        android:layout_width="@dimen/home_thumbnail_size"
-        android:layout_height="@dimen/home_thumbnail_size"
+    <FrameLayout
+        android:id="@+id/itemImageContainer"
+        android:background="@drawable/rounded_thumbnail"
+        android:clipToOutline="true"
+        android:layout_width="@dimen/home_thumbnail_size_width"
         android:layout_marginEnd="@dimen/padding_margin_medium"
-        android:background="@color/placeholder" />
+        android:layout_height="@dimen/home_thumbnail_size_height">
 
-    <TextView
-        android:id="@+id/itemName"
-        tools:text="Example title"
-        android:layout_weight="1"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
+        <ImageView
+            android:id="@+id/itemImage"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/article_picture_cd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/placeholder" />
+    </FrameLayout>
+
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:drawableEndCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/itemTitle"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_large"
+            tools:text="Contact lost after plane crashed in the middle of the Pacific"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </LinearLayout>

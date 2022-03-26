@@ -9,7 +9,6 @@ import fr.stephanesallaberry.news.android.domain.external.entity.Article
 import fr.stephanesallaberry.news.android.transport.utils.BaseAdapter
 
 class ArticlesAdapter(
-    private val sizePictureInPixels: Int,
     var list: List<Article?>,
     onItemClicked: (Article?) -> Unit
 ) :
@@ -21,12 +20,12 @@ class ArticlesAdapter(
 
     init {
         onBinding = { itemView: View, item: Article?, _ ->
-            itemView.findViewById<TextView>(R.id.itemName).text = item?.title ?: ""
+            itemView.findViewById<TextView>(R.id.itemTitle).text = item?.title ?: ""
+            itemView.findViewById<View>(R.id.itemImageContainer).clipToOutline = true
             val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
             item?.urlToImage?.let { imageURL ->
                 Glide.with(itemView)
                     .load(imageURL)
-                    .override(sizePictureInPixels, sizePictureInPixels)
                     .into(imageView)
             }
         }

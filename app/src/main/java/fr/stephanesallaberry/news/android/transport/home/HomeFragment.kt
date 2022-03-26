@@ -18,9 +18,6 @@ import org.orbitmvi.orbit.viewmodel.observe
 class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private val viewModel by viewModel<HomeViewModel>()
-    private val sizePicturesInPixels by lazy {
-        resources.getDimensionPixelSize(R.dimen.home_thumbnail_size)
-    }
 
     private var _binding: HomeFragmentBinding? = null
 
@@ -63,7 +60,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         binding.swipeRefreshLayout.isVisible = !state.isLoading
         val list = view?.findViewById<RecyclerView>(R.id.homeList) ?: return
         if (list.adapter == null) {
-            list.adapter = ArticlesAdapter(sizePicturesInPixels, state.articles) { displayItem(it) }
+            list.adapter = ArticlesAdapter(state.articles) { displayItem(it) }
         } else {
             (list.adapter as? ArticlesAdapter)?.updateData(state.articles)
         }
