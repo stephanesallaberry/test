@@ -1,11 +1,11 @@
 package fr.stephanesallaberry.news.android.di
 
-import fr.stephanesallaberry.news.android.BuildConfig
-import fr.stephanesallaberry.news.android.data.network.CatApi
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.gson.GsonBuilder
 import com.ihsanbal.logging.Level
 import com.ihsanbal.logging.LoggingInterceptor
+import fr.stephanesallaberry.news.android.BuildConfig
+import fr.stephanesallaberry.news.android.data.network.CatApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.dsl.module

@@ -1,9 +1,9 @@
 package fr.stephanesallaberry.news.android
 
+import com.google.gson.Gson
 import fr.stephanesallaberry.news.android.data.network.TokenInterceptor
 import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
 import fr.stephanesallaberry.news.android.domain.internal.IStorageProvider
-import com.google.gson.Gson
 import java.util.Calendar
 import okhttp3.OkHttpClient
 import okhttp3.Request

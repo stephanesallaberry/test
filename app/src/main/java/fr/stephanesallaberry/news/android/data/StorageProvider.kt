@@ -1,12 +1,12 @@
 package fr.stephanesallaberry.news.android.data
 
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import fr.stephanesallaberry.news.android.BuildConfig
 import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
 import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
 import fr.stephanesallaberry.news.android.domain.internal.IStorageProvider
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 private const val SHARED_PREFERENCES = BuildConfig.APPLICATION_ID
 private const val SHARED_PREFERENCES_TOKEN = "session:token"

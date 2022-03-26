@@ -13,8 +13,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import fr.stephanesallaberry.news.android.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import fr.stephanesallaberry.news.android.R
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.orbitmvi.orbit.viewmodel.observe
 import timber.log.Timber

@@ -3,10 +3,10 @@ package fr.stephanesallaberry.news.android.transport.home
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import fr.stephanesallaberry.news.android.R
 import fr.stephanesallaberry.news.android.domain.external.entity.Breed
 import fr.stephanesallaberry.news.android.transport.utils.BaseAdapter
-import com.bumptech.glide.Glide
 
 class BreedsAdapter(
     private val sizePictureInPixels: Int,

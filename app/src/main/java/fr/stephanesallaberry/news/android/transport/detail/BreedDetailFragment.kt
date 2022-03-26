@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import fr.stephanesallaberry.news.android.R
 import fr.stephanesallaberry.news.android.databinding.DetailFragmentBinding
 import fr.stephanesallaberry.news.android.domain.external.entity.Breed
-import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.orbitmvi.orbit.viewmodel.observe
