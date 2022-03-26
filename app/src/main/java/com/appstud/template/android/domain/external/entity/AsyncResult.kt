@@ -1,4 +1,4 @@
-package com.appstud.template.android.domain.external.entity
+package fr.stephanesallaberry.news.android.domain.external.entity
 
 sealed class AsyncResult<T> {
     data class Success<T>(val data: T) : AsyncResult<T>() // Status success and data of the result

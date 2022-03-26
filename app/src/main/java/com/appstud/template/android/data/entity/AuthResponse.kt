@@ -1,4 +1,4 @@
-package com.appstud.template.android.data.entity
+package fr.stephanesallaberry.news.android.data.entity
 
 data class AuthResponse(
     val accessToken: String,

@@ -1,11 +1,11 @@
-package com.appstud.template.android.transport.home
+package fr.stephanesallaberry.news.android.transport.home
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.appstud.template.android.R
-import com.appstud.template.android.domain.external.entity.Breed
-import com.appstud.template.android.transport.utils.BaseAdapter
+import fr.stephanesallaberry.news.android.R
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.transport.utils.BaseAdapter
 import com.bumptech.glide.Glide
 
 class BreedsAdapter(

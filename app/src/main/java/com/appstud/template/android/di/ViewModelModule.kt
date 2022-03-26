@@ -1,35 +1,11 @@
-/*
-MIT License
+package fr.stephanesallaberry.news.android.di
 
-Copyright (c) 2017 Appstud
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
-
-package com.appstud.template.android.di
-
-import com.appstud.template.android.transport.MainViewModel
-import com.appstud.template.android.transport.detail.DetailViewModel
-import com.appstud.template.android.transport.home.HomeViewModel
-import com.appstud.template.android.transport.login.LoginViewModel
-import com.appstud.template.android.transport.utils.validation.EmailValidator
-import com.appstud.template.android.transport.utils.validation.PasswordValidator
+import fr.stephanesallaberry.news.android.transport.MainViewModel
+import fr.stephanesallaberry.news.android.transport.detail.DetailViewModel
+import fr.stephanesallaberry.news.android.transport.home.HomeViewModel
+import fr.stephanesallaberry.news.android.transport.login.LoginViewModel
+import fr.stephanesallaberry.news.android.transport.utils.validation.EmailValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.PasswordValidator
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

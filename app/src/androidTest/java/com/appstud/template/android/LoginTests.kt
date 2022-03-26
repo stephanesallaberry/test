@@ -1,8 +1,8 @@
-package com.appstud.template.android
+package fr.stephanesallaberry.news.android
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.rule.ActivityTestRule
-import com.appstud.template.android.transport.MainActivity
+import fr.stephanesallaberry.news.android.transport.MainActivity
 import io.github.kakaocup.kakao.edit.KEditText
 import io.github.kakaocup.kakao.screen.Screen
 import io.github.kakaocup.kakao.screen.Screen.Companion.onScreen

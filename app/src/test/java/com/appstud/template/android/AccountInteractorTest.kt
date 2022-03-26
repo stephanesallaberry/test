@@ -1,11 +1,11 @@
-package com.appstud.template.android
+package fr.stephanesallaberry.news.android
 
-import com.appstud.template.android.domain.external.AccountInteractor
-import com.appstud.template.android.domain.external.entity.AsyncResult
-import com.appstud.template.android.domain.external.entity.UserAccount
-import com.appstud.template.android.domain.external.entity.UserToken
-import com.appstud.template.android.domain.internal.IStorageProvider
-import com.appstud.template.android.domain.internal.IUserApiProvider
+import fr.stephanesallaberry.news.android.domain.external.AccountInteractor
+import fr.stephanesallaberry.news.android.domain.external.entity.AsyncResult
+import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
+import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
+import fr.stephanesallaberry.news.android.domain.internal.IStorageProvider
+import fr.stephanesallaberry.news.android.domain.internal.IUserApiProvider
 import kotlin.test.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

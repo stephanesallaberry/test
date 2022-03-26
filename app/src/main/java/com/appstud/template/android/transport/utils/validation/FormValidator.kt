@@ -1,4 +1,4 @@
-package com.appstud.template.android.transport.utils.validation
+package fr.stephanesallaberry.news.android.transport.utils.validation
 
 class FormValidator<F> {
 

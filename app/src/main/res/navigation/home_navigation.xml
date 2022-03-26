@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.appstud.template.android.transport.home.HomeFragment"
+        android:name="fr.stephanesallaberry.news.android.transport.home.HomeFragment"
         android:label="@string/title_home"
         >
         <action
@@ -21,10 +21,10 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.appstud.template.android.transport.detail.BreedDetailFragment"
+        android:name="fr.stephanesallaberry.news.android.transport.detail.BreedDetailFragment"
         >
         <argument
-            app:argType="com.appstud.template.android.domain.external.entity.Breed"
+            app:argType="fr.stephanesallaberry.news.android.domain.external.entity.Breed"
             android:name="detail_arg_breed"
             app:nullable="true" />
     </fragment>

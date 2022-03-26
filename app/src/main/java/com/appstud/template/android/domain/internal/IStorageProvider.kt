@@ -1,7 +1,7 @@
-package com.appstud.template.android.domain.internal
+package fr.stephanesallaberry.news.android.domain.internal
 
-import com.appstud.template.android.domain.external.entity.UserAccount
-import com.appstud.template.android.domain.external.entity.UserToken
+import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
+import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
 
 interface IStorageProvider {
     fun getToken(): UserToken?

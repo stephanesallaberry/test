@@ -1,14 +1,14 @@
-package com.appstud.template.android.transport.login
+package fr.stephanesallaberry.news.android.transport.login
 
 import androidx.lifecycle.ViewModel
-import com.appstud.template.android.R
-import com.appstud.template.android.domain.external.AccountInteractor
-import com.appstud.template.android.domain.external.entity.AsyncResult
-import com.appstud.template.android.domain.external.entity.UserAccount
-import com.appstud.template.android.transport.utils.validation.EmailValidator
-import com.appstud.template.android.transport.utils.validation.FormValidator
-import com.appstud.template.android.transport.utils.validation.PasswordValidator
-import com.appstud.template.android.transport.utils.validation.ValueValidator
+import fr.stephanesallaberry.news.android.R
+import fr.stephanesallaberry.news.android.domain.external.AccountInteractor
+import fr.stephanesallaberry.news.android.domain.external.entity.AsyncResult
+import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
+import fr.stephanesallaberry.news.android.transport.utils.validation.EmailValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.FormValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.PasswordValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.ValueValidator
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect

@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.appstud.template.android.transport.login.LoginViewModel" />
+            type="fr.stephanesallaberry.news.android.transport.login.LoginViewModel" />
 
     </data>
 
@@ -69,19 +69,6 @@
                 android:padding="@dimen/padding_margin_small"
                 android:text="@string/login_cta"
                 android:textAllCaps="false" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/loginGoogleButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/white"
-                android:drawableStart="@drawable/google_logo"
-                android:enabled="@{!viewModel.stateFlow.loading}"
-                android:padding="@dimen/padding_margin_small"
-                android:text="@string/login_google_cta"
-                android:textAllCaps="false"
-                android:textColor="#C3000000" />
 
         </LinearLayout>
     </ScrollView>

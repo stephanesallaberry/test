@@ -1,8 +1,8 @@
-package com.appstud.template.android.data
+package fr.stephanesallaberry.news.android.data
 
-import com.appstud.template.android.domain.external.entity.UserAccount
-import com.appstud.template.android.domain.external.entity.UserToken
-import com.appstud.template.android.domain.internal.IUserApiProvider
+import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
+import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
+import fr.stephanesallaberry.news.android.domain.internal.IUserApiProvider
 import java.util.Calendar
 import java.util.GregorianCalendar
 

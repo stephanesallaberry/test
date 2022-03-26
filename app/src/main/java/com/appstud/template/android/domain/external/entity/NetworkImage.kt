@@ -1,4 +1,4 @@
-package com.appstud.template.android.domain.external.entity
+package fr.stephanesallaberry.news.android.domain.external.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

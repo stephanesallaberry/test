@@ -1,4 +1,4 @@
-package com.appstud.template.android.transport.login
+package fr.stephanesallaberry.news.android.transport.login
 
 import android.app.Activity
 import android.os.Bundle
@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.appstud.template.android.R
-import com.appstud.template.android.databinding.LoginFragmentBinding
-import com.appstud.template.android.transport.utils.validation.EmailValidator
-import com.appstud.template.android.transport.utils.validation.FormValidator
-import com.appstud.template.android.transport.utils.validation.PasswordValidator
+import fr.stephanesallaberry.news.android.R
+import fr.stephanesallaberry.news.android.databinding.LoginFragmentBinding
+import fr.stephanesallaberry.news.android.transport.utils.validation.EmailValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.FormValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.PasswordValidator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.orbitmvi.orbit.viewmodel.observe
 import timber.log.Timber

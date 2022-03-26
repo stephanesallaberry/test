@@ -1,9 +1,9 @@
-package com.appstud.template.android
+package fr.stephanesallaberry.news.android
 
-import com.appstud.template.android.domain.external.CatInteractor
-import com.appstud.template.android.domain.external.entity.Breed
-import com.appstud.template.android.domain.external.entity.NetworkImage
-import com.appstud.template.android.domain.internal.ICatProvider
+import fr.stephanesallaberry.news.android.domain.external.CatInteractor
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.NetworkImage
+import fr.stephanesallaberry.news.android.domain.internal.ICatProvider
 import kotlin.test.assertEquals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest

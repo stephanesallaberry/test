@@ -1,8 +1,8 @@
-package com.appstud.template.android.data
+package fr.stephanesallaberry.news.android.data
 
-import com.appstud.template.android.data.network.CatApi
-import com.appstud.template.android.domain.external.entity.Breed
-import com.appstud.template.android.domain.internal.ICatProvider
+import fr.stephanesallaberry.news.android.data.network.CatApi
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.internal.ICatProvider
 import retrofit2.HttpException
 import timber.log.Timber
 

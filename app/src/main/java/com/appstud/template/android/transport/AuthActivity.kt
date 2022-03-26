@@ -1,10 +1,10 @@
-package com.appstud.template.android.transport
+package fr.stephanesallaberry.news.android.transport
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.findNavController
-import com.appstud.template.android.R
+import fr.stephanesallaberry.news.android.R
 
 class AuthActivity : AppCompatActivity() {
 

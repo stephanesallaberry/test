@@ -1,10 +1,10 @@
-package com.appstud.template.android
+package fr.stephanesallaberry.news.android
 
-import com.appstud.template.android.domain.external.CatInteractor
-import com.appstud.template.android.domain.external.entity.Breed
-import com.appstud.template.android.domain.external.entity.NetworkImage
-import com.appstud.template.android.transport.home.HomeScreenState
-import com.appstud.template.android.transport.home.HomeViewModel
+import fr.stephanesallaberry.news.android.domain.external.CatInteractor
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.NetworkImage
+import fr.stephanesallaberry.news.android.transport.home.HomeScreenState
+import fr.stephanesallaberry.news.android.transport.home.HomeViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Test

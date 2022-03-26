@@ -1,8 +1,8 @@
-package com.appstud.template.android.transport.home
+package fr.stephanesallaberry.news.android.transport.home
 
 import androidx.lifecycle.ViewModel
-import com.appstud.template.android.R
-import com.appstud.template.android.domain.external.CatInteractor
+import fr.stephanesallaberry.news.android.R
+import fr.stephanesallaberry.news.android.domain.external.CatInteractor
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.postSideEffect

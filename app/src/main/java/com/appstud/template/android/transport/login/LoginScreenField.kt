@@ -1,4 +1,4 @@
-package com.appstud.template.android.transport.login
+package fr.stephanesallaberry.news.android.transport.login
 
 enum class LoginScreenField {
 

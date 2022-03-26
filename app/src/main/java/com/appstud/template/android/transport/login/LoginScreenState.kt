@@ -1,6 +1,6 @@
-package com.appstud.template.android.transport.login
+package fr.stephanesallaberry.news.android.transport.login
 
-import com.appstud.template.android.transport.utils.validation.FormValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.FormValidator
 
 data class LoginScreenState(
     val isLoading: Boolean = false,

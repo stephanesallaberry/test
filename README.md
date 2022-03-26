@@ -4,7 +4,7 @@
 
 Open latest Android Studio (2020.3.1 on the 10th September 2021), and click "File > New > Project
 from version control"
-Enter the URL of the git project (git@github.com:appstud....).
+Enter the URL of the git project (git@github.com:username....).
 
 ## Ktlint
 
@@ -52,7 +52,7 @@ should work out of the box after a successful Gradle sync.
 now (specify date), name of servers dev/preprod/prod...
 
 Maybe say here that in order to test in app purchase you have to run your app locally on prodDebug
-flavor, and to have your google account (your personal one or developers@appstud.com) added to list
+flavor, and to have your google account added to list
 of testers on google play console.
 
 Explain how to test analytics: go to Firebase Debug View, run a command on your terminal to enable
@@ -121,7 +121,7 @@ is a way:
 ## Core concepts: data/domain/transport or UI
 
 The core concepts of this architecture are defined in
-Notion: [Appstud Hexagonal Architecture](https://www.notion.so/appstud/Appstud-Hexagonal-Architecture-b2ac384b004b459d8675e184e0bf6ed4)
+Notion: [Hexagonal Architecture](https://www.notion.so/myorg/Hexagonal-Architecture-k2ac384b004b459d8675e184e0bf6ed4)
 
 ## MVI architecture: debuggable and testable
 

@@ -1,12 +1,12 @@
-package com.appstud.template.android.transport.account
+package fr.stephanesallaberry.news.android.transport.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.appstud.template.android.databinding.AccountFragmentBinding
-import com.appstud.template.android.transport.MainViewModel
+import fr.stephanesallaberry.news.android.databinding.AccountFragmentBinding
+import fr.stephanesallaberry.news.android.transport.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class AccountFragment : Fragment() {

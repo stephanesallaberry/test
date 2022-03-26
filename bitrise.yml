@@ -344,7 +344,7 @@ workflows:
         FIREBASE_APP_ID: '1:14725277139:android:0861b2f8923848a2a73b26'
       - opts:
           is_expand: false
-        PACKAGE_NAME: com.appstud.template.android
+        PACKAGE_NAME: fr.stephanesallaberry.news.android
   dev-sonar:
     steps:
       - activate-ssh-key@4:

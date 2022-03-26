@@ -1,4 +1,4 @@
-package com.appstud.template.android.transport.utils
+package fr.stephanesallaberry.news.android.transport.utils
 
 import android.view.LayoutInflater
 import android.view.View

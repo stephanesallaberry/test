@@ -1,4 +1,4 @@
-package com.appstud.template.android.transport.detail
+package fr.stephanesallaberry.news.android.transport.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
-import com.appstud.template.android.R
-import com.appstud.template.android.databinding.DetailFragmentBinding
-import com.appstud.template.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.R
+import fr.stephanesallaberry.news.android.databinding.DetailFragmentBinding
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
 import com.bumptech.glide.Glide
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf

@@ -1,6 +1,6 @@
-package com.appstud.template.android.transport.detail
+package fr.stephanesallaberry.news.android.transport.detail
 
-import com.appstud.template.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
 
 data class DetailScreenState(
     val breed: Breed? = null,

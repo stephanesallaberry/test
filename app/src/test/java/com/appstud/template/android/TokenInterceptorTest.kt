@@ -1,8 +1,8 @@
-package com.appstud.template.android
+package fr.stephanesallaberry.news.android
 
-import com.appstud.template.android.data.network.TokenInterceptor
-import com.appstud.template.android.domain.external.entity.UserToken
-import com.appstud.template.android.domain.internal.IStorageProvider
+import fr.stephanesallaberry.news.android.data.network.TokenInterceptor
+import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
+import fr.stephanesallaberry.news.android.domain.internal.IStorageProvider
 import com.google.gson.Gson
 import java.util.Calendar
 import okhttp3.OkHttpClient

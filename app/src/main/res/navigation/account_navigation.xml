@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.appstud.template.android.transport.account.AccountFragment"
+        android:name="fr.stephanesallaberry.news.android.transport.account.AccountFragment"
         android:label="AccountFragment" />
 
 </navigation>

@@ -1,15 +1,15 @@
-package com.appstud.template.android
+package fr.stephanesallaberry.news.android
 
-import com.appstud.template.android.domain.external.AccountInteractor
-import com.appstud.template.android.domain.external.entity.AsyncResult
-import com.appstud.template.android.domain.external.entity.UserAccount
-import com.appstud.template.android.transport.login.LoginScreenField
-import com.appstud.template.android.transport.login.LoginScreenSideEffect
-import com.appstud.template.android.transport.login.LoginScreenState
-import com.appstud.template.android.transport.login.LoginViewModel
-import com.appstud.template.android.transport.utils.validation.EmailValidator
-import com.appstud.template.android.transport.utils.validation.FormValidator
-import com.appstud.template.android.transport.utils.validation.PasswordValidator
+import fr.stephanesallaberry.news.android.domain.external.AccountInteractor
+import fr.stephanesallaberry.news.android.domain.external.entity.AsyncResult
+import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
+import fr.stephanesallaberry.news.android.transport.login.LoginScreenField
+import fr.stephanesallaberry.news.android.transport.login.LoginScreenSideEffect
+import fr.stephanesallaberry.news.android.transport.login.LoginScreenState
+import fr.stephanesallaberry.news.android.transport.login.LoginViewModel
+import fr.stephanesallaberry.news.android.transport.utils.validation.EmailValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.FormValidator
+import fr.stephanesallaberry.news.android.transport.utils.validation.PasswordValidator
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before

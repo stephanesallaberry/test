@@ -1,7 +1,7 @@
-package com.appstud.template.android.transport
+package fr.stephanesallaberry.news.android.transport
 
 import androidx.lifecycle.ViewModel
-import com.appstud.template.android.domain.external.AccountInteractor
+import fr.stephanesallaberry.news.android.domain.external.AccountInteractor
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.syntax.simple.intent
 import org.orbitmvi.orbit.syntax.simple.reduce

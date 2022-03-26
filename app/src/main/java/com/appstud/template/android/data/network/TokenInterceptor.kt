@@ -1,10 +1,10 @@
-package com.appstud.template.android.data.network
+package fr.stephanesallaberry.news.android.data.network
 
-import com.appstud.template.android.BuildConfig
-import com.appstud.template.android.data.entity.AuthResponse
-import com.appstud.template.android.data.entity.RefreshRequest
-import com.appstud.template.android.domain.external.entity.UserToken
-import com.appstud.template.android.domain.internal.IStorageProvider
+import fr.stephanesallaberry.news.android.BuildConfig
+import fr.stephanesallaberry.news.android.data.entity.AuthResponse
+import fr.stephanesallaberry.news.android.data.entity.RefreshRequest
+import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
+import fr.stephanesallaberry.news.android.domain.internal.IStorageProvider
 import java.net.HttpURLConnection
 import java.util.Date
 import java.util.concurrent.SynchronousQueue

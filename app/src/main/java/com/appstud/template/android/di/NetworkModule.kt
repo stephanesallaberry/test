@@ -1,7 +1,7 @@
-package com.appstud.template.android.di
+package fr.stephanesallaberry.news.android.di
 
-import com.appstud.template.android.BuildConfig
-import com.appstud.template.android.data.network.CatApi
+import fr.stephanesallaberry.news.android.BuildConfig
+import fr.stephanesallaberry.news.android.data.network.CatApi
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.google.gson.GsonBuilder
 import com.ihsanbal.logging.Level

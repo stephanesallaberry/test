@@ -1,6 +1,6 @@
-package com.appstud.template.android.transport.home
+package fr.stephanesallaberry.news.android.transport.home
 
-import com.appstud.template.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
 
 data class HomeScreenState(
     val breeds: List<Breed> = emptyList<Breed>(),

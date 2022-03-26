@@ -1,7 +1,7 @@
-package com.appstud.template.android.domain.external
+package fr.stephanesallaberry.news.android.domain.external
 
-import com.appstud.template.android.domain.external.entity.Breed
-import com.appstud.template.android.domain.internal.ICatProvider
+import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.internal.ICatProvider
 
 class CatInteractor(private val catProvider: ICatProvider) {
     suspend fun getBreeds(): List<Breed> {

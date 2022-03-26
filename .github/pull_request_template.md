@@ -19,7 +19,7 @@ update of the magazine on the next week.
 We can also follow a magazine, and we will get a notification when the magazine gets updated.
 
 See
-[Notion space](https://www.notion.so/appstud/Epic-User-Stories-72a58536b5f342c0a773c9b4c6d17498)
+[Notion space](https://www.notion.so/myorg/Epic-User-Stories-72a58536b5f342c0a773c9b4c6d17498)
 for more details.
 
 # List of tests added/modified

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/favoriteListFragment"
-        android:name="com.appstud.template.android.transport.favorites.FavoriteListFragment"
+        android:name="fr.stephanesallaberry.news.android.transport.favorites.FavoriteListFragment"
         android:label="FavoritesFragment" />
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.appstud.template.android.transport
+package fr.stephanesallaberry.news.android.transport
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.appstud.template.android.R
+import fr.stephanesallaberry.news.android.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.orbitmvi.orbit.viewmodel.observe

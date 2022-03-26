@@ -1,9 +1,9 @@
-package com.appstud.template.android.domain.external
+package fr.stephanesallaberry.news.android.domain.external
 
-import com.appstud.template.android.domain.external.entity.AsyncResult
-import com.appstud.template.android.domain.external.entity.UserAccount
-import com.appstud.template.android.domain.internal.IStorageProvider
-import com.appstud.template.android.domain.internal.IUserApiProvider
+import fr.stephanesallaberry.news.android.domain.external.entity.AsyncResult
+import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
+import fr.stephanesallaberry.news.android.domain.internal.IStorageProvider
+import fr.stephanesallaberry.news.android.domain.internal.IUserApiProvider
 
 class AccountInteractor(
     private val storageProvider: IStorageProvider,

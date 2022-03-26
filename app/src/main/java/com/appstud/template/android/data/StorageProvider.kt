@@ -1,10 +1,10 @@
-package com.appstud.template.android.data
+package fr.stephanesallaberry.news.android.data
 
 import android.content.Context
-import com.appstud.template.android.BuildConfig
-import com.appstud.template.android.domain.external.entity.UserAccount
-import com.appstud.template.android.domain.external.entity.UserToken
-import com.appstud.template.android.domain.internal.IStorageProvider
+import fr.stephanesallaberry.news.android.BuildConfig
+import fr.stephanesallaberry.news.android.domain.external.entity.UserAccount
+import fr.stephanesallaberry.news.android.domain.external.entity.UserToken
+import fr.stephanesallaberry.news.android.domain.internal.IStorageProvider
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
