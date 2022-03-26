@@ -4,4 +4,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="placeholder">#676767</color>
+    <color name="almostWhite">#F0F0F7</color>
+    <color name="blackHalfOpacity">#54000000</color>
+
+    <!-- Aliases, to avoid typing same value in 5 many themes.xml files -->
+    <color name="textColor">@color/black</color>
+    <color name="backgroundColor">@color/almostWhite</color>
 </resources>
