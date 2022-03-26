@@ -3,8 +3,8 @@ ext {
     timber_version = "4.7.1"
     retrofit_version = "2.9.0"
     okhttp_version = "4.9.1"
-    lifecycle_version = "2.4.0-alpha03"
-    navigation_version = "2.4.0-alpha06"
+    lifecycle_version = "2.4.1"
+    navigation_version = "2.4.1"
     arch_version = "2.1.0"
     orbit_version = "4.2.0"
     mockito_version = '3.11.2'

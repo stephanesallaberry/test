@@ -34,6 +34,7 @@ import com.appstud.template.android.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import timber.log.Timber
 
 class AndroidApplication : Application() {
@@ -62,7 +63,7 @@ class AndroidApplication : Application() {
             Timber.plant(Timber.DebugTree())
         }
         startKoin {
-            androidLogger()
+            androidLogger(Level.ERROR)
             androidContext(this@AndroidApplication)
             modules(
                 networkModule,
