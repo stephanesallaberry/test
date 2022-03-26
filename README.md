@@ -65,7 +65,7 @@ debug mode, and wait for minimum 30seconds.
 There are 3 main branches :
 
 - `main` : production release
-- `preprod` : pre-production release (for testers usually)
+- `staging` : pre-production release (for testers usually)
 - `develop` : development release
 
 ⚠️ There should *never* be any direct commit to those branches, only merges.
@@ -109,9 +109,9 @@ is a way:
   run unit and UI tests.
 - When PR is accepted, code gets merged to develop -> bitrise CI will run tests and send coverage to
   sonarcloud.io
-- When develop is merged into preprod -> bitrise CI will build an APK and upload it to firebase app
+- When develop is merged into staging -> bitrise CI will build an APK and upload it to firebase app
   distribution and send it to "testers" group.
-- When preprod is merged into main ->  bitrise CI will build a signed AAB and upload it to google
+- When staging is merged into main ->  bitrise CI will build a signed AAB and upload it to google
   play console on production track, but will not publish it (just to be safe). Someone will have to
   manually click on "publish". You can check the apk generated at the same time to test your app one
   last time.

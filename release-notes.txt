@@ -1,4 +1,4 @@
-Release notes for Firebase App Testers on Preproduction.
+Release notes for Firebase App Testers on Staging environment.
 
 - fix something
 - add something

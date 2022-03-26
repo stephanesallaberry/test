@@ -5,8 +5,8 @@ project_type: android
 trigger_map:
   - push_branch: develop
     workflow: dev-sonar
-  - push_branch: preprod
-    workflow: deploy-preprod-firebase
+  - push_branch: staging
+    workflow: deploy-staging-firebase
   - push_branch: main
     workflow: deploy-prod-playstore
   - pull_request_source_branch: '*'
@@ -81,7 +81,7 @@ workflows:
             - test_type: instrumentation
       - deploy-to-bitrise-io@1: {}
       - cache-push@2: {}
-  deploy-preprod-firebase:
+  deploy-staging-firebase:
     description: >
       ## How to get a signed APK
 
@@ -206,7 +206,7 @@ workflows:
     envs:
       - opts:
           is_expand: false
-        BUILDVARIANT: preprodRelease
+        BUILDVARIANT: stagingRelease
       - opts:
           is_expand: false
         FIREBASE_APP_ID: '1:14725277139:android:0861b2f8923848a2a73b26'

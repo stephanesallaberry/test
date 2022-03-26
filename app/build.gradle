@@ -64,9 +64,9 @@ android {
             buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v1/\""
         }
 
-        preprod {
-            applicationIdSuffix ".preprod"
-            versionNameSuffix "-preprod"
+        staging {
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
             def API_BASE_URL = "https://api.thecatapi.com"
             buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v1/\""
         }
