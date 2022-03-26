@@ -20,6 +20,7 @@ def flavorNameForSonarqube = "dev"
 def sonarcloudLoginToken = "31eea37e2e4c642c8c28bd0b5dbb15e90bb4d761"
 // build type of the variant you would like to run tests on.
 def sonarcloudProjectKey = "stephane-news-android"
+def sonarcloudOrganizationKey = "stephanesallaberry"
 def sonarcloudProjectDisplayName = "Stephane News Android"
 /**
  * From now on don't change anything. It should work.
@@ -139,6 +140,7 @@ sonarqube {
 
     properties {
         property "sonar.projectName", "$sonarcloudProjectDisplayName"
+        property "sonar.organization", "$sonarcloudOrganizationKey"
         property "sonar.projectKey", "$sonarcloudProjectKey"
         property "sonar.host.url", "https://sonarcloud.io"
         property "sonar.login", "$sonarcloudLoginToken"
