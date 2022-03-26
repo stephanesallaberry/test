@@ -14,18 +14,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <ImageView
                 android:background="@color/black"
                 android:id="@+id/detail_image"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                />
+                android:layout_height="200dp" />
+
             <TextView
                 android:id="@+id/detail_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_margin_medium"
                 tools:text="@tools:sample/lorem/random" />
+
+            <TextView
+                android:id="@+id/detail_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/orange"
+                android:padding="@dimen/padding_margin_medium"
+                android:text="@string/link_article" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

@@ -11,15 +11,16 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import fr.stephanesallaberry.news.android.R
 import fr.stephanesallaberry.news.android.databinding.DetailFragmentBinding
-import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.Article
+import fr.stephanesallaberry.news.android.transport.utils.extensions.browse
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.orbitmvi.orbit.viewmodel.observe
 import timber.log.Timber
 
-class BreedDetailFragment : Fragment(R.layout.detail_fragment) {
-    private val args: BreedDetailFragmentArgs by navArgs()
-    private val viewModel by viewModel<DetailViewModel> { parametersOf(args.detailArgBreed) }
+class DetailFragment : Fragment(R.layout.detail_fragment) {
+    private val args: DetailFragmentArgs by navArgs()
+    private val viewModel by viewModel<DetailViewModel> { parametersOf(args.detailArg) }
 
     private var _binding: DetailFragmentBinding? = null
 
@@ -47,19 +48,22 @@ class BreedDetailFragment : Fragment(R.layout.detail_fragment) {
 
     private fun render(state: DetailScreenState) {
         Timber.d("render $state")
-        state.breed?.let { breedNotNull ->
-            setToolbar(breedNotNull)
+        state.article?.let { dataUnwrapped ->
+            setToolbar(dataUnwrapped)
 
             Glide.with(this)
-                .load(breedNotNull.image.url)
+                .load(dataUnwrapped.urlToImage)
                 .into(binding.detailImage)
 
-            binding.detailDescription.text = breedNotNull.description
+            binding.detailDescription.text = dataUnwrapped.content
+            binding.detailLink.setOnClickListener {
+                it.context.browse(dataUnwrapped.url)
+            }
         }
     }
 
-    private fun setToolbar(breed: Breed) {
-        (activity as? AppCompatActivity)?.supportActionBar?.title = breed.name
+    private fun setToolbar(article: Article) {
+        (activity as? AppCompatActivity)?.supportActionBar?.title = article.title
     }
 
     private fun handleSideEffect(sideEffect: DetailScreenSideEffect) {
