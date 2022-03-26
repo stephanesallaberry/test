@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/favorites_navigation"
+    app:startDestination="@+id/favoriteListFragment">
+
+    <fragment
+        android:id="@+id/favoriteListFragment"
+        android:name="com.appstud.template.android.transport.favorites.FavoriteListFragment"
+        android:label="FavoritesFragment" />
+
+</navigation>

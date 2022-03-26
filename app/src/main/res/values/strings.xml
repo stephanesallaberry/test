@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Template Android</string>
+    <string name="general_error">An error occurred</string>
+    <string name="login_email">email address</string>
+    <string name="login_password">password</string>
+    <string name="login_cta">Login</string>
+    <string name="title_home">Home</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_account">Account</string>
+    <string name="login_error_bad_credentials">Bad credentials</string>
+    <string name="login_email_bad_format">Email is invalid</string>
+    <string name="login_password_too_short">Password should have %1$d characters minimum</string>
+    <string name="login_field_empty">Please fill in this field</string>
+    <string name="account_logout">Logout</string>
+    <string name="login_google_cta">Sign in with Google</string>
+    <string name="breed_picture_cd">Breed picture</string>
+</resources>
