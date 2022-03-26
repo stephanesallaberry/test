@@ -15,4 +15,5 @@
     <string name="login_google_cta">Sign in with Google</string>
     <string name="article_picture_cd">Article thumbnail</string>
     <string name="app_welcome_login">Welcome to the News app!\nThis login page is fake, so you can enter fake credentials and access the news list.</string>
+    <string name="link_article">See full article in your browser</string>
 </resources>

@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import fr.stephanesallaberry.news.android.R
 import fr.stephanesallaberry.news.android.databinding.DetailFragmentBinding
 import fr.stephanesallaberry.news.android.domain.external.entity.Article
+import fr.stephanesallaberry.news.android.transport.utils.extensions.browse
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 import org.orbitmvi.orbit.viewmodel.observe
@@ -54,7 +55,10 @@ class DetailFragment : Fragment(R.layout.detail_fragment) {
                 .load(dataUnwrapped.urlToImage)
                 .into(binding.detailImage)
 
-            binding.detailDescription.text = dataUnwrapped.description
+            binding.detailDescription.text = dataUnwrapped.content
+            binding.detailLink.setOnClickListener {
+                it.context.browse(dataUnwrapped.url)
+            }
         }
     }
 

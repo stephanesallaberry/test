@@ -8,6 +8,8 @@ import java.util.Date
 data class Article(
     val title: String,
     val description: String,
+    val content: String,
     val urlToImage: String,
+    val url: String,
     val publishedAt: Date
 ) : Parcelable
