@@ -15,12 +15,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 const val API_KEY = "API_KEY"
 
+private val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").create()
+
 private fun createRetrofit(okHttpClient: OkHttpClient): Retrofit {
     val gsonBuilder = GsonBuilder()
     val retrofitBuilder = Retrofit.Builder()
         .baseUrl(BuildConfig.API_BASE_URL)
         .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create(gsonBuilder.create()))
+        .addConverterFactory(GsonConverterFactory.create(gson))
 
     return retrofitBuilder.build()
 }
