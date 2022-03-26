@@ -5,12 +5,15 @@ import com.google.gson.GsonBuilder
 import com.ihsanbal.logging.Level
 import com.ihsanbal.logging.LoggingInterceptor
 import fr.stephanesallaberry.news.android.BuildConfig
-import fr.stephanesallaberry.news.android.data.network.CatApi
+import fr.stephanesallaberry.news.android.data.network.NewsApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+const val API_KEY = "API_KEY"
 
 private fun createRetrofit(okHttpClient: OkHttpClient): Retrofit {
     val gsonBuilder = GsonBuilder()
@@ -24,6 +27,8 @@ private fun createRetrofit(okHttpClient: OkHttpClient): Retrofit {
 
 val networkModule = module {
 
+    single(named(API_KEY)) { BuildConfig.API_KEY }
+
     single() { createRetrofit(get<OkHttpClient>()) }
 
     single<OkHttpClient> {
@@ -31,9 +36,13 @@ val networkModule = module {
         // add interceptor
         clientBuilder.addInterceptor(
             Interceptor {
-                // add token and execute the request
-                val updateRequest = it.request().newBuilder()
-                    .addHeader("x-api-key", "af4591f6-62cd-4e6e-beda-551d6ffcc9a1")
+                // add api key and execute the request
+                val request = it.request()
+                val updateRequest = request.newBuilder()
+                    .url(
+                        request.url.newBuilder().addQueryParameter("apiKey", get(named(API_KEY)))
+                            .build()
+                    )
                     .build()
                 it.proceed(updateRequest)
             }
@@ -65,5 +74,5 @@ val networkModule = module {
         return@single clientBuilder.build()
     }
 
-    single { get<Retrofit>().create(CatApi::class.java) }
+    single { get<Retrofit>().create(NewsApi::class.java) }
 }

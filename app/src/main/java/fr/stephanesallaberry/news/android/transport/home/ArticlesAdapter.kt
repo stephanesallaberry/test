@@ -5,25 +5,25 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import fr.stephanesallaberry.news.android.R
-import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.Article
 import fr.stephanesallaberry.news.android.transport.utils.BaseAdapter
 
-class BreedsAdapter(
+class ArticlesAdapter(
     private val sizePictureInPixels: Int,
-    var list: List<Breed?>,
-    onItemClicked: (Breed?) -> Unit
+    var list: List<Article?>,
+    onItemClicked: (Article?) -> Unit
 ) :
-    BaseAdapter<Breed?>(
+    BaseAdapter<Article?>(
         mData = list,
-        itemLayoutId = R.layout.breed_item,
+        itemLayoutId = R.layout.article_item,
         onClickListener = onItemClicked
     ) {
 
     init {
-        onBinding = { itemView: View, item: Breed?, _ ->
-            itemView.findViewById<TextView>(R.id.breedItemName).text = item?.name ?: ""
-            val imageView = itemView.findViewById<ImageView>(R.id.breedItemImage)
-            item?.image?.url?.let { imageURL ->
+        onBinding = { itemView: View, item: Article?, _ ->
+            itemView.findViewById<TextView>(R.id.itemName).text = item?.title ?: ""
+            val imageView = itemView.findViewById<ImageView>(R.id.itemImage)
+            item?.urlToImage?.let { imageURL ->
                 Glide.with(itemView)
                     .load(imageURL)
                     .override(sizePictureInPixels, sizePictureInPixels)

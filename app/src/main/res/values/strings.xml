@@ -13,5 +13,5 @@
     <string name="login_field_empty">Please fill in this field</string>
     <string name="account_logout">Logout</string>
     <string name="login_google_cta">Sign in with Google</string>
-    <string name="breed_picture_cd">Breed picture</string>
+    <string name="article_picture_cd">Article thumbnail</string>
 </resources>

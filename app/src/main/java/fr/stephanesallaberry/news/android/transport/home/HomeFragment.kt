@@ -11,10 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import fr.stephanesallaberry.news.android.R
 import fr.stephanesallaberry.news.android.databinding.HomeFragmentBinding
-import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.Article
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.orbitmvi.orbit.viewmodel.observe
-import timber.log.Timber
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
 
@@ -44,14 +43,14 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.breedsSwipeRefreshLayout.setOnRefreshListener {
+        binding.swipeRefreshLayout.setOnRefreshListener {
             refreshData()
         }
     }
 
     private fun refreshData() {
-        viewModel.getBreeds()
-        binding.breedsSwipeRefreshLayout.isRefreshing = false
+        viewModel.getArticles()
+        binding.swipeRefreshLayout.isRefreshing = false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,18 +60,17 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
 
     private fun render(state: HomeScreenState) {
         binding.loader.isVisible = state.isLoading
-        binding.breedsSwipeRefreshLayout.isVisible = !state.isLoading
-        val list = view?.findViewById<RecyclerView>(R.id.breedsList) ?: return
+        binding.swipeRefreshLayout.isVisible = !state.isLoading
+        val list = view?.findViewById<RecyclerView>(R.id.homeList) ?: return
         if (list.adapter == null) {
-            list.adapter = BreedsAdapter(sizePicturesInPixels, state.breeds) { displayBreed(it) }
+            list.adapter = ArticlesAdapter(sizePicturesInPixels, state.articles) { displayItem(it) }
         } else {
-            (list.adapter as? BreedsAdapter)?.updateData(state.breeds)
+            (list.adapter as? ArticlesAdapter)?.updateData(state.articles)
         }
     }
 
-    private fun displayBreed(breed: Breed?) {
-        breed?.let {
-            Timber.d("yoooooo $it")
+    private fun displayItem(article: Article?) {
+        article?.let {
             findNavController().navigate(
                 HomeFragmentDirections.displayDetail(it)
             )

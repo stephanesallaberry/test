@@ -4,8 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Breed(
-    val name: String,
+data class Article(
+    val title: String,
     val description: String,
-    val image: NetworkImage
+    val urlToImage: String
 ) : Parcelable

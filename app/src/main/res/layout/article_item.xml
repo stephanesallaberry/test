@@ -8,17 +8,17 @@
     android:padding="@dimen/padding_margin_medium">
 
     <ImageView
-        android:id="@+id/breedItemImage"
+        android:id="@+id/itemImage"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/breed_picture_cd"
+        android:contentDescription="@string/article_picture_cd"
         android:layout_width="@dimen/home_thumbnail_size"
         android:layout_height="@dimen/home_thumbnail_size"
         android:layout_marginEnd="@dimen/padding_margin_medium"
         android:background="@color/placeholder" />
 
     <TextView
-        android:id="@+id/breedItemName"
-        tools:text="Abyssinian"
+        android:id="@+id/itemName"
+        tools:text="Example title"
         android:layout_weight="1"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
