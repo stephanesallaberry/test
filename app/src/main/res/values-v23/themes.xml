@@ -9,11 +9,12 @@
         <item name="android:textColorPrimary">@color/textColor</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:colorControlNormal">@color/textColor</item>
-        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:statusBarColor">@color/backgroundColor</item>
+        <item name="android:windowLightStatusBar">true</item>
 
         <!-- These next properties make bars translucent but half opaque too -->
         <!-- useful for android 5 where status icons and navigation cannot get dark  -->
-        <item name="android:navigationBarColor">@color/black</item>
-        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:navigationBarColor">@color/backgroundColor</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>
