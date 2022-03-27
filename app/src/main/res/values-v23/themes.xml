@@ -1,16 +1,20 @@
 <resources>
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <item name="colorPrimary">@color/backgroundColor</item>
+        <item name="colorAccent">@color/orange</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:textSize">@dimen/text_medium</item>
         <item name="android:textColorPrimary">@color/textColor</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:colorControlNormal">@color/textColor</item>
-
-        <item name="android:navigationBarColor">@color/backgroundColor</item>
         <item name="android:statusBarColor">@color/backgroundColor</item>
+        <item name="android:windowLightStatusBar">true</item>
 
+        <!-- These next properties make bars translucent but half opaque too -->
+        <!-- useful for android 5 where status icons and navigation cannot get dark  -->
+        <item name="android:navigationBarColor">@color/backgroundColor</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

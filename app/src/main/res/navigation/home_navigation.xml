@@ -21,11 +21,11 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="fr.stephanesallaberry.news.android.transport.detail.BreedDetailFragment"
+        android:name="fr.stephanesallaberry.news.android.transport.detail.DetailFragment"
         >
         <argument
-            app:argType="fr.stephanesallaberry.news.android.domain.external.entity.Breed"
-            android:name="detail_arg_breed"
+            app:argType="fr.stephanesallaberry.news.android.domain.external.entity.Article"
+            android:name="detail_arg"
             app:nullable="true" />
     </fragment>
 

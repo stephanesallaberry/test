@@ -1,3 +1,8 @@
+# Useful links
+
+[Sonarcloud page](https://sonarcloud.io/project/overview?id=stephane-news-android)
+[Bitrise page](https://app.bitrise.io/app/c73fa09410f8e1a7#/builds)
+
 # Getting started
 
 ## Get Project on Android Studio
@@ -29,10 +34,10 @@ You can either:
 
 📝 You can setup a macro on your Android Studio to format&save all at once: Edit > Macros > Start
 Macro Recording, and then click on Code > Reformat Code, Optimize Imports, AutoIndent Lines, File >
-Save all. 
+Save all.
 
-Stop macro recording, give it a nice name, and associate the keyboard shortcut Cmd+S to
-this new macro. Use it all the time to avoid ktlint warnings and fix errors automatically.
+Stop macro recording, give it a nice name, and associate the keyboard shortcut Cmd+S to this new
+macro. Use it all the time to avoid ktlint warnings and fix errors automatically.
 
 ### I don't see the Gradle tasks you are talking about
 
@@ -52,8 +57,7 @@ should work out of the box after a successful Gradle sync.
 now (specify date), name of servers dev/preprod/prod...
 
 Maybe say here that in order to test in app purchase you have to run your app locally on prodDebug
-flavor, and to have your google account added to list
-of testers on google play console.
+flavor, and to have your google account added to list of testers on google play console.
 
 Explain how to test analytics: go to Firebase Debug View, run a command on your terminal to enable
 debug mode, and wait for minimum 30seconds.
@@ -168,5 +172,5 @@ common features:
 - data/domain/ui layers separation
 - use of MVI library
 - unit/UI tests
-- 
+
 

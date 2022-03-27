@@ -7,17 +7,17 @@
     tools:context=".transport.MainActivity">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/breedsSwipeRefreshLayout"
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/breedsList"
+                android:id="@+id/homeList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/breed_item" />
+                tools:listitem="@layout/article_item" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

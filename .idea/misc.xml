@@ -15,10 +15,12 @@
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.1640625" />
         <entry key="app/src/main/res/layout/account_fragment.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/article_item.xml" value="0.2640625" />
         <entry key="app/src/main/res/layout/breed_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/detail_fragment.xml" value="0.11574074074074074" />
         <entry key="app/src/main/res/layout/home_fragment.xml" value="0.22037037037037038" />
-        <entry key="app/src/main/res/layout/login_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/login_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/main_activity.xml" value="0.17291666666666666" />
       </map>
     </option>
   </component>

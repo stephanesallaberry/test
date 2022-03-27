@@ -1,16 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.DayNight">
         <item name="colorPrimary">@color/backgroundColor</item>
         <item name="android:textColor">@color/textColor</item>
-        <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:textSize">@dimen/text_medium</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
         <item name="android:textColorPrimary">@color/textColor</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:colorControlNormal">@color/textColor</item>
+        <item name="android:autofilledHighlight">@android:color/transparent</item>
 
         <item name="android:navigationBarColor">@color/backgroundColor</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- Optional, if drawing behind the status bar too -->
         <item name="android:statusBarColor">@color/backgroundColor</item>
-
     </style>
 </resources>

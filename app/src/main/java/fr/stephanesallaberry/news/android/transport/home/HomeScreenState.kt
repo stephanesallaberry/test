@@ -1,9 +1,9 @@
 package fr.stephanesallaberry.news.android.transport.home
 
-import fr.stephanesallaberry.news.android.domain.external.entity.Breed
+import fr.stephanesallaberry.news.android.domain.external.entity.Article
 
 data class HomeScreenState(
-    val breeds: List<Breed> = emptyList<Breed>(),
+    val articles: List<Article> = emptyList<Article>(),
     val isLoading: Boolean = false
 )
 
