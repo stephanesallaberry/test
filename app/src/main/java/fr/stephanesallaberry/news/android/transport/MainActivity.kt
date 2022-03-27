@@ -3,10 +3,13 @@ package fr.stephanesallaberry.news.android.transport
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -36,6 +39,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        adaptUIToFullScreen()
 
         val mainNavHostContainer = supportFragmentManager.findFragmentById(
             R.id.mainNavHostContainer
@@ -57,6 +61,17 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.observe(this, state = ::render, sideEffect = ::handleSideEffect)
+    }
+
+    private fun adaptUIToFullScreen() {
+        val mainRoot = findViewById<View>(R.id.mainRoot)
+        ViewCompat.setOnApplyWindowInsetsListener(mainRoot) { _, insets ->
+            mainRoot.updatePadding(
+                top = insets.systemWindowInsets.top
+            )
+            // Return the insets so that they keep going down the view hierarchy
+            insets
+        }
     }
 
     private fun render(state: MainScreenState) {

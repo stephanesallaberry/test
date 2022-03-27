@@ -1,2 +1,8 @@
+# indicate this is the root of the project
+# root = true
+
+[*]
+disabled_rules = import-ordering
+
 [*.{kt,kts}]
 max_line_length=120

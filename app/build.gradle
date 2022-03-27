@@ -60,20 +60,26 @@ android {
         dev {
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
-            def API_BASE_URL = "https://api.thecatapi.com"
-            buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v1/\""
+            def API_BASE_URL = "https://newsapi.org"
+            def API_KEY = "ce807d2eda9447e6b4f4349319ecb7fb"
+            buildConfigField "String", "API_KEY", "\"${API_KEY}\""
+            buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v2/\""
         }
 
         staging {
             applicationIdSuffix ".staging"
             versionNameSuffix "-staging"
-            def API_BASE_URL = "https://api.thecatapi.com"
-            buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v1/\""
+            def API_BASE_URL = "https://newsapi.org"
+            def API_KEY = "ce807d2eda9447e6b4f4349319ecb7fb"
+            buildConfigField "String", "API_KEY", "\"${API_KEY}\""
+            buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v2/\""
         }
 
         prod {
-            def API_BASE_URL = "https://api.thecatapi.com"
-            buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v1/\""
+            def API_BASE_URL = "https://newsapi.org"
+            def API_KEY = "ce807d2eda9447e6b4f4349319ecb7fb"
+            buildConfigField "String", "API_KEY", "\"${API_KEY}\""
+            buildConfigField "String", "API_BASE_URL", "\"${API_BASE_URL}/v2/\""
         }
     }
 
@@ -173,6 +179,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
 }
 
-ktlint{
+ktlint {
     android = true
 }
