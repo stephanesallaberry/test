@@ -1,440 +1,261 @@
 ---
-format_version: '11'
-default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: android
-trigger_map:
-  - push_branch: develop
-    workflow: dev-sonar
-  - push_branch: staging
-    workflow: deploy-staging-firebase
-  - push_branch: main
-    workflow: deploy-prod-playstore
-  - pull_request_source_branch: '*'
-    workflow: check-PR
-    pull_request_target_branch: develop
 workflows:
-  check-PR:
+  _build-apk-and-unit-tests:
     steps:
-      - activate-ssh-key@4:
-          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-      - git-clone@6: {}
-      - cache-pull@2: {}
-      - script@1:
-          title: Switch to Java 11
+      - gradle-runner@2.0:
           inputs:
-            - content: >-
-                #!/usr/bin/env bash
-
-                # fail if any commands fails
-
-                set -e
-
-                # debug log
-
-                set -x
-
-
-                # write your script here
-
-                sudo update-alternatives --set javac
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
-
-                sudo update-alternatives --set java
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/java
-
-                export JAVA_HOME='/usr/lib/jvm/java-11-openjdk-amd64'
-
-                envman add --key JAVA_HOME --value
-                '/usr/lib/jvm/java-11-openjdk-amd64'
-      - install-missing-android-tools@2:
+            - gradle_task: ktlintCheck
+          title: Gradle Ktlint check
+      - android-lint@0.9:
           inputs:
-            - gradlew_path: $PROJECT_LOCATION/gradlew
-      - android-lint@0:
-          inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - variant: $VARIANT
-      - android-detekt@0:
-          inputs:
-            - module: $MODULE
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - variant: "$VARIANT"
+      - android-detekt@0.0: { }
       - android-unit-test@1.0:
           inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - report_path_pattern: '*build/reports/tests'
-            - variant: $TESTVARIANT
-      - android-build-for-ui-testing@0:
-          inputs:
-            - variant: $TESTVARIANT
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-      - virtual-device-testing-for-android@1.1:
-          inputs:
-            - test_devices: 'Pixel2,27,en,portrait'
-            - num_flaky_test_attempts: '0'
-            - environment_variables: |-
-                coverage=true
-                coverageFile=/sdcard/coverage.ec
-            - download_test_results: 'true'
-            - use_verbose_log: 'true'
-            - directories_to_pull: /sdcard/
-            - test_type: instrumentation
-      - deploy-to-bitrise-io@1: {}
-      - cache-push@2: {}
-  deploy-staging-firebase:
-    description: >
-      ## How to get a signed APK
-
-
-      This workflow contains the **Sign APK** step. To sign your APK all you
-      have to do is to:
-
-
-      1. Click on **Code Signing** tab
-
-      1. Find the **ANDROID KEYSTORE FILE** section
-
-      1. Click or drop your file on the upload file field
-
-      1. Fill the displayed 3 input fields:
-       1. **Keystore password**
-       1. **Keystore alias**
-       1. **Private key password**
-      1. Click on **[Save metadata]** button
-
-
-      That's it! From now on, **Sign APK** step will receive your uploaded
-      files.
-
-
-      ## To run this workflow
-
-
-      If you want to run this workflow manually:
-
-
-      1. Open the app's build list page
-
-      2. Click on **[Start/Schedule a Build]** button
-
-      3. Select **deploy** in **Workflow** dropdown input
-
-      4. Click **[Start Build]** button
-
-
-      Or if you need this workflow to be started by a GIT event:
-
-
-      1. Click on **Triggers** tab
-
-      2. Setup your desired event (push/tag/pull) and select **deploy** workflow
-
-      3. Click on **[Done]** and then **[Save]** buttons
-
-
-      The next change in your repository that matches any of your trigger map
-      event will start **deploy** workflow.
-    steps:
-      - activate-ssh-key@4:
-          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-      - git-clone@6: {}
-      - cache-pull@2: {}
-      - script@1:
-          title: Switch to Java 11
-          inputs:
-            - content: >-
-                #!/usr/bin/env bash
-
-                # fail if any commands fails
-
-                set -e
-
-                # debug log
-
-                set -x
-
-
-                # write your script here
-
-                sudo update-alternatives --set javac
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
-
-                sudo update-alternatives --set java
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/java
-
-                export JAVA_HOME='/usr/lib/jvm/java-11-openjdk-amd64'
-
-                envman add --key JAVA_HOME --value
-                '/usr/lib/jvm/java-11-openjdk-amd64'
-      - install-missing-android-tools@2:
-          inputs:
-            - gradlew_path: $PROJECT_LOCATION/gradlew
-      - android-unit-test@1:
-          inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - variant: $TESTVARIANT
-      - android-build-for-ui-testing@0:
-          inputs:
-            - variant: $TESTVARIANT
-            - module: $MODULE
-      - virtual-device-testing-for-android@1:
-          inputs:
-            - test_devices: 'Pixel2,27,en,portrait'
-            - num_flaky_test_attempts: '3'
-            - download_test_results: 'true'
-            - test_type: instrumentation
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - variant: "$VARIANT"
       - android-build@1.0:
           inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - variant: $BUILDVARIANT
-          title: Android Build for deploy
-      - sign-apk@1:
-          run_if: '{{getenv "BITRISEIO_ANDROID_KEYSTORE_URL" | ne ""}}'
-          inputs:
-            - debuggable_permitted: 'false'
-      - deploy-to-bitrise-io@1: {}
-      - firebase-app-distribution@0:
-          inputs:
-            - app: $FIREBASE_APP_ID
-            - testers: ''
-            - groups: testers
-            - release_notes_file: release-notes.txt
-            - firebase_token: $FIREBASE_TOKEN
-      - cache-push@2: {}
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - variant: "$VARIANT"
     envs:
       - opts:
           is_expand: false
-        BUILDVARIANT: stagingRelease
-      - opts:
-          is_expand: false
-        FIREBASE_APP_ID: '1:14725277139:android:0861b2f8923848a2a73b26'
-  deploy-prod-playstore:
-    description: >
-      ## How to get a signed APK
-
-
-      This workflow contains the **Sign APK** step. To sign your APK all you
-      have to do is to:
-
-
-      1. Click on **Code Signing** tab
-
-      1. Find the **ANDROID KEYSTORE FILE** section
-
-      1. Click or drop your file on the upload file field
-
-      1. Fill the displayed 3 input fields:
-       1. **Keystore password**
-       1. **Keystore alias**
-       1. **Private key password**
-      1. Click on **[Save metadata]** button
-
-
-      That's it! From now on, **Sign APK** step will receive your uploaded
-      files.
-
-
-      ## To run this workflow
-
-
-      If you want to run this workflow manually:
-
-
-      1. Open the app's build list page
-
-      2. Click on **[Start/Schedule a Build]** button
-
-      3. Select **deploy** in **Workflow** dropdown input
-
-      4. Click **[Start Build]** button
-
-
-      Or if you need this workflow to be started by a GIT event:
-
-
-      1. Click on **Triggers** tab
-
-      2. Setup your desired event (push/tag/pull) and select **deploy** workflow
-
-      3. Click on **[Done]** and then **[Save]** buttons
-
-
-      The next change in your repository that matches any of your trigger map
-      event will start **deploy** workflow.
+        VARIANT: devRelease
+    description: "Build an APK on dev environment. \n\nRun Unit tests, but does not
+      run instrumented tests.\n\nNo coverage report. \n\nNo sending to firebase.\n"
+    before_run:
+      - _setup-common
+    after_run:
+      - _sign-and-save
+  _setup-common:
     steps:
-      - activate-ssh-key@4:
+      - activate-ssh-key@4.1:
           run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-      - git-clone@6: {}
-      - cache-pull@2: {}
+      - git-clone@6.1: { }
+      - cache-pull@2.5: { }
+      - install-missing-android-tools@3.0:
+          inputs:
+            - ndk_revision: ''
+            - gradlew_path: "$PROJECT_LOCATION/gradlew"
       - script@1:
           title: Switch to Java 11
           inputs:
-            - content: >-
+            - content: |-
                 #!/usr/bin/env bash
-
                 # fail if any commands fails
-
                 set -e
-
                 # debug log
-
                 set -x
-
-
                 # write your script here
-
-                sudo update-alternatives --set javac
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
-
-                sudo update-alternatives --set java
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/java
-
+                sudo update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
+                sudo update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
                 export JAVA_HOME='/usr/lib/jvm/java-11-openjdk-amd64'
-
-                envman add --key JAVA_HOME --value
-                '/usr/lib/jvm/java-11-openjdk-amd64'
-      - install-missing-android-tools@2:
-          inputs:
-            - gradlew_path: $PROJECT_LOCATION/gradlew
-      - android-unit-test@1:
-          inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - variant: $TESTVARIANT
-      - android-build-for-ui-testing@0:
-          inputs:
-            - variant: $TESTVARIANT
-            - module: $MODULE
-      - virtual-device-testing-for-android@1:
-          inputs:
-            - test_devices: 'Pixel2,27,en,portrait'
-            - num_flaky_test_attempts: '3'
-            - download_test_results: 'true'
-            - test_type: instrumentation
-      - android-build@1.0:
-          inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - build_type: aab
-            - variant: $BUILDVARIANT
-          title: Android Build for deploy
-      - sign-apk@1:
+                envman add --key JAVA_HOME --value '/usr/lib/jvm/java-11-openjdk-amd64'
+    envs:
+      - opts:
+          is_expand: false
+        VARIANT: devRelease
+    description: "Build an APK on dev environment. \n\nRun Unit tests, but does not
+      run instrumented tests.\n\nNo coverage report. \n\nNo sending to firebase.\n"
+  _sign-and-save:
+    steps:
+      - sign-apk@1.7:
           run_if: '{{getenv "BITRISEIO_ANDROID_KEYSTORE_URL" | ne ""}}'
           inputs:
             - use_apk_signer: 'true'
-            - android_app: $BITRISE_AAB_PATH
-            - debuggable_permitted: 'false'
-      - deploy-to-bitrise-io@1: {}
-      - google-play-deploy@3:
+      - deploy-to-bitrise-io@2.0:
           inputs:
-            - package_name: $PACKAGE_NAME
-            - service_account_json_key_path: $BITRISEIO_SERVICE_ACCOUNT_JSON_KEY_URL
-            - status: draft
-            - track: production
-          title: 'Google Play Deploy to Prod, without publishing to users (draft status)'
-      - cache-push@2: {}
+            - deploy_path: "$BITRISE_SIGNED_APK_PATH"
+          title: Deploy Signed App
+          is_always_run: false
+      - cache-push@2.6: { }
     envs:
       - opts:
           is_expand: false
-        BUILDVARIANT: prodRelease
+        VARIANT: devRelease
+    description: "Build an APK on dev environment. \n\nRun Unit tests, but does not
+      run instrumented tests.\n\nNo coverage report. \n\nNo sending to firebase.\n"
+    before_run: [ ]
+  build-dev:
+    envs:
       - opts:
           is_expand: false
-        FIREBASE_APP_ID: '1:14725277139:android:0861b2f8923848a2a73b26'
-      - opts:
-          is_expand: false
-        PACKAGE_NAME: fr.stephanesallaberry.news.android
-  dev-sonar:
+        VARIANT: devRelease
+    description: "Build an APK on dev environment. \n\nRun Unit tests, but does not
+      run instrumented tests.\n\nNo coverage report. \n\nNo sending to firebase.\n"
+    before_run:
+      - _build-apk-and-unit-tests
+    after_run: [ ]
+  build-dev-sonar-quality-report:
+    description: "Build an APK on dev environment. \n\nRun Unit tests AND instrumented
+      tests.\n\nCreate a coverage report and send it to sonarcloud.io\n\nNo sending
+      to firebase."
     steps:
-      - activate-ssh-key@4:
-          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-      - git-clone@6: {}
-      - cache-pull@2: {}
-      - script@1:
-          title: Switch to Java 11
+      - gradle-runner@2.0:
           inputs:
-            - content: >-
-                #!/usr/bin/env bash
-
-                # fail if any commands fails
-
-                set -e
-
-                # debug log
-
-                set -x
-
-
-                # write your script here
-
-                sudo update-alternatives --set javac
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/javac
-
-                sudo update-alternatives --set java
-                /usr/lib/jvm/java-11-openjdk-amd64/bin/java
-
-                export JAVA_HOME='/usr/lib/jvm/java-11-openjdk-amd64'
-
-                envman add --key JAVA_HOME --value
-                '/usr/lib/jvm/java-11-openjdk-amd64'
-      - install-missing-android-tools@2:
+            - gradle_task: ktlintCheck
+          title: Gradle Ktlint check
+      - android-lint@0.9:
           inputs:
-            - gradlew_path: $PROJECT_LOCATION/gradlew
-      - android-lint@0:
-          inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - variant: $VARIANT
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - arguments: ''
+            - variant: "$VARIANT"
+      - android-detekt@0.0: { }
       - android-unit-test@1.0:
           inputs:
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
-            - report_path_pattern: '*build/reports/tests'
-            - variant: $TESTVARIANT
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - report_path_pattern: "*build/reports/tests"
+            - variant: "$TESTVARIANT"
       - android-build-for-ui-testing@0:
           inputs:
-            - variant: $TESTVARIANT
-            - project_location: $PROJECT_LOCATION
-            - module: $MODULE
+            - variant: "$TESTVARIANT"
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
       - virtual-device-testing-for-android@1.1:
           inputs:
-            - test_devices: 'Pixel2,27,en,portrait'
-            - num_flaky_test_attempts: '0'
+            - test_devices: Pixel2,27,en,portrait
+            - num_flaky_test_attempts: '3'
             - environment_variables: |-
                 coverage=true
                 coverageFile=/sdcard/coverage.ec
             - download_test_results: 'true'
             - use_verbose_log: 'true'
-            - directories_to_pull: /sdcard/
+            - directories_to_pull: "/sdcard/"
             - test_type: instrumentation
-      - gradle-runner@1:
+      - gradle-runner@2.0:
           inputs:
             - gradle_task: jacocoTestReport
           title: Create unified test report UI + Unit Test
-      - gradle-runner@1:
+      - gradle-runner@2.0:
           inputs:
             - gradle_task: sonarqube
           title: Send report to Sonarcloud
-      - deploy-to-bitrise-io@1: {}
-      - cache-push@2: {}
+      - android-build@1.0:
+          inputs:
+            - variant: "$DEPLOYVARIANT"
+            - module: "$MODULE"
+    envs:
+      - opts:
+          is_expand: false
+        DEPLOYVARIANT: devRelease
+      - opts:
+          is_expand: false
+        TESTVARIANT: localDebug
+      - opts:
+          is_expand: false
+        VARIANT: devRelease
+    before_run:
+      - _setup-common
+    after_run:
+      - _sign-and-save
+  build-prod:
+    description: "Build an APK file on PROD environment. \n\nRun Unit tests, but does
+      not run instrumented tests.\n\nNo coverage report. \n\nNo sending to firebase.\n"
+    steps:
+      - android-lint@0.9:
+          inputs:
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - variant: "$VARIANT"
+          is_always_run: true
+      - android-detekt@0.0:
+          is_always_run: true
+      - android-unit-test@1.0:
+          inputs:
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - variant: "$VARIANT"
+          is_always_run: true
+      - gradle-runner@2.0:
+          inputs:
+            - gradle_task: assembleProductionDebugAndroidTest
+          title: Build Tests APKs (Gradle runner)
+          is_always_run: true
+      - virtual-device-testing-for-android@1.1:
+          inputs:
+            - test_type: instrumentation
+          is_always_run: true
+      - gradle-runner@2.0:
+          inputs:
+            - gradle_task: sonarqube
+          is_always_run: true
+      - android-build@1.0:
+          inputs:
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - build_type: aab
+            - variant: "$VARIANT"
+          is_always_run: true
+          title: Android Build AAB file
+      - android-build@1.0:
+          inputs:
+            - project_location: "$PROJECT_LOCATION"
+            - module: "$MODULE"
+            - variant: "$VARIANT"
+          is_always_run: true
+          title: Android Build APK file
+    envs:
+      - opts:
+          is_expand: false
+        VARIANT: productionRelease
+    before_run:
+      - _setup-common
+    after_run:
+      - _sign-and-save
+  build-staging:
+    description: "Build an APK on staging environment. \n\nRun Unit tests, but does
+      not run instrumented tests.\n\nNo coverage report. \n\nNo sending to firebase.\n"
+    envs:
+      - opts:
+          is_expand: false
+        VARIANT: stagingRelease
+    before_run:
+      - _build-apk-and-unit-tests
+    after_run: [ ]
 app:
   envs:
     - opts:
         is_expand: false
-      PROJECT_LOCATION: .
+      PROJECT_LOCATION: "."
     - opts:
         is_expand: false
       MODULE: app
     - opts:
         is_expand: false
-      BUILDVARIANT: devDebug
+      APPBUILD: app/build
     - opts:
         is_expand: false
-      GRADLEW_PATH: ./gradlew
+      GRADLEW_PATH: "./gradlew"
     - opts:
         is_expand: false
-      TESTVARIANT: devDebug
-    - opts:
-        is_expand: false
-      FIREBASE_APP_ID: ''
+      LATEST_VERSION_CODE: '0'
+meta:
+  bitrise.io:
+    stack: linux-docker-android-20.04
+trigger_map:
+  - push_branch: develop
+    workflow: build-dev-sonar-quality-report
+  - push_branch: staging
+    workflow: build-staging
+  - pull_request_source_branch: "*"
+    pull_request_target_branch: sprint*
+    workflow: build-dev
+  - pull_request_source_branch: "*"
+    pull_request_target_branch: develop
+    workflow: build-dev
+  - pull_request_source_branch: "*"
+    pull_request_target_branch: staging
+    workflow: build-staging
+  - pull_request_source_branch: "*"
+    pull_request_target_branch: master
+    workflow: build-prod
